@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="theme.css">
+    <title>Vue3</title>
+</head>
+<body>
+<div id="app">
+    <input type="text" :value="inputValue" @input="changeInputValue" @keyup.enter="add">
+    <h3>{{inputValue}}</h3>
+    <button class="btn" @click.left="clear" @click.right="add" >Очистить </button>
+    <ul v-if="node.length > 0" >
+        <li v-for="(elem,index) of node">{{ spl(elem, index) }} {{index}} <button class="danger" @click="spliceS(index,$event)">Удалить</button></li>
+    </ul>
+    <div v-else >Добавьте свое сообщение</div>
+    <div>Всего сообщений: {{node.length}}
+        | Удвоенное кол-во сообщений: {{node.length * 2}}
+        | Утроенное кол-во сообщений: {{ getter() }}
+        | Учетверенное кол-во сообщений: {{ getterBetter }}
+    </div>
+
+
+</div>
+<script src="https://unpkg.com/vue@next"></script>
+<script src="app.js"></script>
+<script>
+  //  console.log('ntrcn', 'wert')
+</script>
+
+</body>
+</html>
