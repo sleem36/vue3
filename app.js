@@ -14,6 +14,9 @@ const Wer = {
         },
         remove(index){
             this.arr.splice(index,1);
+        },
+        lowerCase(val){
+           return val.toLowerCase();
         }
     },
     computed: {

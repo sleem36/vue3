@@ -12,7 +12,7 @@
 <div id="app" class="form-control">
 
     <input type="text" v-model="inputText">
-    <h4>{{inputText}}</h4>
+    <h4>{{lowerCase(inputText)}}</h4>
     <div v-if="arr.length == 0" >Введите ваше сообщение</div>
     <button class="btn" @click="add">Добавить</button>
     <ul>
