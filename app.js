@@ -6,10 +6,6 @@ const Wer = {
         }
     },
     methods: {
-        cloneText(e){
-            console.log(e.target);
-            this.inputText = e.target.value;
-        },
         add(){
             if(this.inputText != '') {
                 this.arr.push(this.inputText);
