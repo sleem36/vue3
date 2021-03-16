@@ -1,50 +1,33 @@
-const Tre = {
+const Wer = {
     data(){
         return {
-            counter: 0,
-            inputValue: "",
-            node: []
+            inputText: "",
+            arr: []
         }
     },
     methods: {
-        changeInputValue(e){
-            this.inputValue = e.target.value;
+        cloneText(e){
+            console.log(e.target);
+            this.inputText = e.target.value;
         },
         add(){
-            this.node.push(this.inputValue);
-            console.log(this.node);
-            this.inputValue = '';
-        },
-        clear(){
-            this.node.pop(this.inputValue);
-        },
-        del(e){
-            console.log(e.target);
-            e.target.parentNode.remove();
-        },
-        spliceS(index, e){
-            console.log(e.target, index );
-            this.node.splice(index,1);
-        },
-        spl(elem, index){
-            if(index < 2) {
-                return elem.toUpperCase();
-            } else {
-                return elem + '!!!';
+            if(this.inputText != '') {
+                this.arr.push(this.inputText);
             }
-
+            this.inputText = '';
         },
-        getter(){
-            console.log('getter');
-            return this.node.length * 3;
+        remove(index){
+            this.arr.splice(index,1);
         }
     },
     computed: {
-        getterBetter(){
-            console.log('getterBetter');
-            return this.node.length * 4;
+
+    },
+    watch: {
+        inputText(value){
+            if(value.length < 4) this.inputText = this.inputText.toUpperCase();
         }
     }
 }
 
-Vue.createApp(Tre).mount("#app")
+Vue.createApp(Wer).mount("#app")

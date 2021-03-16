@@ -9,21 +9,15 @@
     <title>Vue3</title>
 </head>
 <body>
-<div id="app">
-    <input type="text" :value="inputValue" @input="changeInputValue" @keyup.enter="add">
-    <h3>{{inputValue}}</h3>
-    <button class="btn" @click.left="clear" @click.right="add" >Очистить </button>
-    <ul v-if="node.length > 0" >
-        <li v-for="(elem,index) of node">{{ spl(elem, index) }} {{index}} <button class="danger" @click="spliceS(index,$event)">Удалить</button></li>
+<div id="app" class="form-control">
+
+    <input type="text" @keyup="cloneText($event)" :value="inputText">
+    <h4>{{inputText}}</h4>
+    <div v-if="arr.length == 0" >Введите ваше сообщение</div>
+    <button class="btn" @click="add">Добавить</button>
+    <ul>
+        <li v-for="(elem, index) of arr">{{  elem + ' - ' + index}} <button class="btn danger" @click="remove(index)">Удалить</button></li>
     </ul>
-    <div v-else >Добавьте свое сообщение</div>
-    <div>Всего сообщений: {{node.length}}
-        | Удвоенное кол-во сообщений: {{node.length * 2}}
-        | Утроенное кол-во сообщений: {{ getter() }}
-        | Учетверенное кол-во сообщений: {{ getterBetter }}
-    </div>
-
-
 </div>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="app.js"></script>
