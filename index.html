@@ -9,15 +9,16 @@
     <title>Vue3</title>
 </head>
 <body>
-<div id="app" class="form-control">
-
-    <input type="text" v-model="inputText">
-    <h4>{{lowerCase(inputText)}}</h4>
-    <div v-if="arr.length == 0" >Введите ваше сообщение</div>
-    <button class="btn" @click="add">Добавить</button>
-    <ul>
-        <li v-for="(elem, index) of arr">{{  elem + ' - ' + index}} <button class="btn danger" @click="remove(index)">Удалить</button></li>
-    </ul>
+<div id="app" class="form-control" v-cloak>
+    <div class="card" >
+        <input type="text" v-model="inputText">
+        <h4 :style="{color: arr.length > 2?'green':'blue', background: 'yellow'}">{{lowerCase(inputText)}}</h4>
+        <div v-if="arr.length == 0" >Введите ваше сообщение</div>
+        <button :class="{btn:true, dop: inputText.length > 4}" @click="add">Добавить</button>
+        <ul>
+            <li v-for="(elem, index) of arr">{{  elem + ' - ' + index}} <button class="btn danger" @click="remove(index)">Удалить</button></li>
+        </ul>
+    </div>
 </div>
 <script src="https://unpkg.com/vue@next"></script>
 <script src="app.js"></script>
