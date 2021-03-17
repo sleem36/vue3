@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 [v-cloak] > * { display:none }
-[v-cloak]::before { content: "loading…" }
+[v-cloak]:before { content: "loading…" }
 body {
   font-family: Inter, Roboto, Oxygen, Fira Sans, Helvetica Neue, sans-serif;
   -webkit-font-smoothing: antialiased;
